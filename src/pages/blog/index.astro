@@ -29,7 +29,7 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft))
             title={post.data.title}
             description={post.data.description}
             pubDate={post.data.pubDate}
-            slug={post.id}
+            slug={post.id.replace(/\.mdx?$/, '')}
             tags={post.data.tags}
           />
         ))}
