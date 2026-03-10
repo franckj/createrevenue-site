@@ -192,13 +192,13 @@ p {
 }
 
 .btn--primary {
-  background-color: var(--color-teal);
-  color: var(--color-white);
+  background-color: var(--color-accent);
+  color: var(--color-navy);
 }
 
 .btn--primary:hover {
-  background-color: var(--color-teal-dark);
-  color: var(--color-white);
+  background-color: var(--color-accent-dark);
+  color: var(--color-navy);
   transform: translateY(-1px);
   box-shadow: var(--shadow-glow);
 }
