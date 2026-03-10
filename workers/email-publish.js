@@ -67,6 +67,21 @@ export default {
           `Updated preview ready: ${CONFIG.previewBaseUrl}/blog/${slug}/\n\nReply OK to publish, or reply with more edits.`
         );
       }
+    } else if (to.startsWith('deploy+')) {
+      // Staging deploy approval
+      const shortSha = extractSlugFromAddress(to);
+      const body = await streamToText(message.raw);
+      const emailBody = extractEmailBody(body).trim();
+
+      if (emailBody.toUpperCase() === `DEPLOY ${shortSha.toUpperCase()}`) {
+        await mergeStagingToMain(env);
+        await sendEmail(env, sender, 'Deploying to production...',
+          `Staging merged to main. Production will be live at ${CONFIG.productionBaseUrl} in ~1 minute.`
+        );
+      } else {
+        console.log(`Ignored deploy reply — expected "DEPLOY ${shortSha}", got: ${emailBody.slice(0, 50)}`);
+      }
+
     } else if (to.startsWith('publish@')) {
       // New post submission
       const body = await streamToText(message.raw);
@@ -82,8 +97,31 @@ export default {
     }
   },
 
-  // Also handle HTTP requests for health checks
+  // HTTP handler: health check + staging notify endpoint
   async fetch(request, env) {
+    const url = new URL(request.url);
+
+    if (request.method === 'POST' && url.pathname === '/notify') {
+      const auth = request.headers.get('Authorization');
+      if (auth !== `Bearer ${env.NOTIFY_SECRET}`) {
+        return new Response('Unauthorized', { status: 401 });
+      }
+
+      const { stagingUrl, shortSha, commitMsg } = await request.json();
+
+      for (const recipient of CONFIG.allowedSenders) {
+        await sendEmail(
+          env,
+          recipient,
+          `[Staging] ${commitMsg}`,
+          `Staging is ready for review:\n\n${stagingUrl}\n\nTo deploy to production, reply to this email with exactly:\n\nDEPLOY ${shortSha}\n\nAnything else will be ignored.`,
+          `deploy+${shortSha}@createrevenue.com`
+        );
+      }
+
+      return new Response('Notification sent', { status: 200 });
+    }
+
     return new Response('Email Worker is running.', { status: 200 });
   },
 };
@@ -135,6 +173,17 @@ ${body}`;
   const markdown = data.content[0].text;
 
   return { slug, markdown };
+}
+
+/**
+ * Merge staging branch into main to trigger production deploy
+ */
+async function mergeStagingToMain(env) {
+  await githubAPI('merges', 'POST', {
+    base: CONFIG.githubMainBranch,
+    head: CONFIG.githubBranch,
+    commit_message: 'Deploy: merge staging → production',
+  }, env);
 }
 
 /**
