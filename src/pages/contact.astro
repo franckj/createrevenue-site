@@ -1,0 +1,136 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Contact"
+  description="Book a free 30-minute call with Brendan McAdams. Let's talk about your sales challenges."
+>
+  <section class="page-header">
+    <div class="container container--narrow">
+      <h1>Let's Talk</h1>
+      <p class="page-header__sub">Book a free 30-minute call. No pitch, no pressure — just a conversation about where you're stuck and how to move forward.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-main">
+          <!-- Replace this with an actual Calendly/Cal.com embed or booking link -->
+          <div class="booking-placeholder">
+            <h2>Schedule a Call</h2>
+            <p>Pick a time that works for you. I'll send a confirmation with a Zoom link.</p>
+            <a href="#" class="btn btn--primary btn--large mt-lg">Open Booking Calendar</a>
+            <p class="booking-placeholder__note">30 minutes · Free · Video call</p>
+          </div>
+        </div>
+
+        <aside class="contact-sidebar">
+          <div class="contact-card">
+            <h3>Other Ways to Reach Me</h3>
+            <div class="contact-card__item">
+              <strong>Email</strong>
+              <a href="mailto:brendan@createrevenue.com">brendan@createrevenue.com</a>
+            </div>
+            <div class="contact-card__item">
+              <strong>LinkedIn</strong>
+              <a href="https://www.linkedin.com/in/brendanmcadams/" target="_blank" rel="noopener">linkedin.com/in/brendanmcadams</a>
+            </div>
+          </div>
+
+          <div class="contact-card mt-xl">
+            <h3>What to Expect</h3>
+            <p>On the call, we'll cover where your sales are today, what's working and what isn't, and whether working together makes sense. If it's not a fit, I'll tell you — and point you in the right direction.</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-header {
+    background: var(--color-gray-50);
+    padding: var(--space-4xl) 0 var(--space-2xl);
+  }
+
+  .page-header__sub {
+    font-size: 1.15rem;
+    color: var(--color-gray-500);
+    margin-top: var(--space-md);
+    max-width: 520px;
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: var(--space-3xl);
+    align-items: start;
+  }
+
+  .booking-placeholder {
+    background: var(--color-gray-50);
+    border: 2px dashed var(--color-gray-200);
+    border-radius: 12px;
+    padding: var(--space-3xl);
+    text-align: center;
+  }
+
+  .booking-placeholder h2 {
+    margin-bottom: var(--space-md);
+  }
+
+  .booking-placeholder p {
+    color: var(--color-gray-500);
+  }
+
+  .booking-placeholder__note {
+    font-size: 0.85rem;
+    color: var(--color-gray-400);
+    margin-top: var(--space-md);
+    margin-bottom: 0;
+  }
+
+  .contact-card {
+    background: var(--color-white);
+    border: 1px solid var(--color-gray-200);
+    border-radius: 10px;
+    padding: var(--space-xl);
+  }
+
+  .contact-card h3 {
+    font-size: 1rem;
+    margin-bottom: var(--space-md);
+  }
+
+  .contact-card p {
+    font-size: 0.95rem;
+    color: var(--color-gray-500);
+    line-height: 1.6;
+  }
+
+  .contact-card__item {
+    margin-bottom: var(--space-md);
+  }
+
+  .contact-card__item strong {
+    display: block;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-gray-400);
+    margin-bottom: var(--space-xs);
+  }
+
+  .contact-card__item a {
+    font-size: 0.95rem;
+    word-break: break-all;
+  }
+
+  @media (max-width: 768px) {
+    .contact-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

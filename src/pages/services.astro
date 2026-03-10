@@ -1,0 +1,209 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Services"
+  description="Sales Call Tune-Up, revenue strategy consulting, and executive coaching for health tech companies."
+>
+  <section class="page-header">
+    <div class="container container--narrow">
+      <h1>How I Help You <span class="text-highlight">Create Revenue</span></h1>
+      <p class="page-header__sub">Three ways to work together — all focused on getting you from where you are to where your revenue should be.</p>
+    </div>
+  </section>
+
+  <!-- Sales Call Tune-Up -->
+  <section class="section service-detail" id="tune-up">
+    <div class="container">
+      <div class="service-detail__grid">
+        <div class="service-detail__content">
+          <span class="service-detail__label">Flagship Program</span>
+          <h2>Sales Call Tune-Up</h2>
+          <p>I join your actual sales calls — live or recorded — and show you exactly what's working and what's costing you deals. This isn't roleplay. It's real-time coaching on real conversations with real prospects.</p>
+          <h3>What You Get</h3>
+          <ul>
+            <li>Live observation of 4-8 sales calls per engagement</li>
+            <li>Detailed debrief after each call with specific improvements</li>
+            <li>Objection handling frameworks tailored to your market</li>
+            <li>Call scoring rubric so you can self-assess going forward</li>
+            <li>Pre-call strategy sessions to prepare for high-stakes meetings</li>
+          </ul>
+          <h3>Who It's For</h3>
+          <p>Founders running sales themselves, early sales hires who need coaching, and teams that are "doing okay" but know they could close at a higher rate.</p>
+        </div>
+        <aside class="service-detail__aside">
+          <div class="service-detail__box">
+            <h4>Typical Engagement</h4>
+            <p>4-8 weeks, 2-3 calls per week</p>
+            <a href="/contact/" class="btn btn--primary mt-md">Book a Call</a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- Revenue Strategy -->
+  <section class="section section--gray service-detail" id="strategy">
+    <div class="container">
+      <div class="service-detail__grid">
+        <div class="service-detail__content">
+          <span class="service-detail__label">Strategic Consulting</span>
+          <h2>Revenue Strategy</h2>
+          <p>Your product works. Your sales don't — yet. I help you build a repeatable, predictable sales process from pipeline generation to close. We fix the system, not just individual calls.</p>
+          <h3>What We Work On</h3>
+          <ul>
+            <li>Pipeline audit — where are deals stalling and why?</li>
+            <li>Ideal customer profile refinement</li>
+            <li>Sales process design (or redesign)</li>
+            <li>Forecasting methodology that actually reflects reality</li>
+            <li>Pricing and positioning for health tech buyers</li>
+            <li>Competitive differentiation strategy</li>
+          </ul>
+          <h3>Who It's For</h3>
+          <p>Startups that have product-market fit but can't scale revenue. Companies preparing for fundraising who need to show a credible sales engine. Teams transitioning from founder-led sales to a dedicated team.</p>
+        </div>
+        <aside class="service-detail__aside">
+          <div class="service-detail__box">
+            <h4>Typical Engagement</h4>
+            <p>1-3 month advisory, weekly sessions</p>
+            <a href="/contact/" class="btn btn--primary mt-md">Let's Talk Strategy</a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- Executive Coaching -->
+  <section class="section service-detail" id="coaching">
+    <div class="container">
+      <div class="service-detail__grid">
+        <div class="service-detail__content">
+          <span class="service-detail__label">1:1 Advisory</span>
+          <h2>Executive Coaching</h2>
+          <p>A trusted advisor in your corner. For founders, CROs, and sales leaders who need someone experienced to think through challenges, pressure-test decisions, and stay accountable to their revenue goals.</p>
+          <h3>What This Looks Like</h3>
+          <ul>
+            <li>Bi-weekly 1:1 sessions (60 minutes)</li>
+            <li>Async support between sessions (email/voice)</li>
+            <li>Deal strategy on your highest-value opportunities</li>
+            <li>Board prep and investor narrative coaching</li>
+            <li>Team building and hiring decisions for sales roles</li>
+          </ul>
+          <h3>Who It's For</h3>
+          <p>CEOs and founders who are still deeply involved in sales. First-time VPs of Sales who want a mentor. Leaders navigating a pivot or entering a new market segment.</p>
+        </div>
+        <aside class="service-detail__aside">
+          <div class="service-detail__box">
+            <h4>Typical Engagement</h4>
+            <p>Ongoing, minimum 3-month commitment</p>
+            <a href="/contact/" class="btn btn--primary mt-md">Start Coaching</a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section section--dark">
+    <div class="container text-center">
+      <h2>Not Sure Which Is Right?</h2>
+      <p style="color: var(--color-gray-300); margin: var(--space-md) auto 0; max-width: 480px;">Book a free 30-minute call. We'll figure out where you're stuck and which approach makes sense.</p>
+      <a href="/contact/" class="btn btn--primary btn--large mt-xl">Book a Free Call</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-header {
+    background: var(--color-gray-50);
+    padding: var(--space-4xl) 0 var(--space-2xl);
+  }
+
+  .page-header__sub {
+    font-size: 1.15rem;
+    color: var(--color-gray-500);
+    margin-top: var(--space-md);
+    max-width: 560px;
+  }
+
+  .service-detail__grid {
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: var(--space-3xl);
+    align-items: start;
+  }
+
+  .service-detail__label {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-teal-dark);
+    margin-bottom: var(--space-sm);
+  }
+
+  .service-detail__content h2 {
+    margin-bottom: var(--space-lg);
+  }
+
+  .service-detail__content h3 {
+    margin-top: var(--space-xl);
+    margin-bottom: var(--space-sm);
+  }
+
+  .service-detail__content p {
+    color: var(--color-gray-600);
+    line-height: 1.7;
+  }
+
+  .service-detail__content ul {
+    padding-left: var(--space-xl);
+    margin-top: var(--space-sm);
+    margin-bottom: var(--space-md);
+  }
+
+  .service-detail__content li {
+    margin-bottom: var(--space-sm);
+    color: var(--color-gray-600);
+  }
+
+  .service-detail__box {
+    background: var(--color-white);
+    border: 1px solid var(--color-gray-200);
+    border-radius: 10px;
+    padding: var(--space-xl);
+    position: sticky;
+    top: 100px;
+  }
+
+  .section--gray .service-detail__box {
+    background: var(--color-white);
+  }
+
+  .service-detail__box h4 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-gray-400);
+    margin-bottom: var(--space-sm);
+  }
+
+  .service-detail__box p {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-navy);
+    margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    .service-detail__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .service-detail__box {
+      position: static;
+    }
+  }
+</style>

@@ -1,0 +1,13 @@
+name = "createrevenue-email-worker"
+main = "workers/email-publish.js"
+compatibility_date = "2024-01-01"
+account_id = "caaea080dc96ef6541c3f5091718fe1e"
+
+# Environment variables (set via `wrangler secret put`)
+# GITHUB_TOKEN — GitHub personal access token with repo scope
+# CLAUDE_API_KEY — Anthropic API key
+# POSTMARK_TOKEN — Postmark server token (optional, for email sending)
+
+# Email routing (configure in Cloudflare dashboard)
+# Route: publish@createrevenue.com → this worker
+# Route: approve+*@createrevenue.com → this worker

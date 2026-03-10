@@ -1,0 +1,102 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  pubDate: Date;
+  slug: string;
+  tags?: string[];
+}
+
+const { title, description, pubDate, slug, tags = [] } = Astro.props;
+
+const formattedDate = pubDate.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'short',
+  day: 'numeric',
+});
+---
+
+<article class="blog-card">
+  <a href={`/blog/${slug}/`} class="blog-card__link">
+    <time class="blog-card__date" datetime={pubDate.toISOString()}>{formattedDate}</time>
+    <h3 class="blog-card__title">{title}</h3>
+    <p class="blog-card__excerpt">{description}</p>
+    {tags.length > 0 && (
+      <div class="blog-card__tags">
+        {tags.map(tag => (
+          <span class="blog-card__tag">{tag}</span>
+        ))}
+      </div>
+    )}
+    <span class="blog-card__read">Read article &rarr;</span>
+  </a>
+</article>
+
+<style>
+  .blog-card {
+    border-bottom: 1px solid var(--color-gray-100);
+  }
+
+  .blog-card__link {
+    display: block;
+    padding: var(--space-xl) 0;
+    text-decoration: none;
+    transition: all var(--transition-fast);
+  }
+
+  .blog-card__link:hover {
+    padding-left: var(--space-md);
+  }
+
+  .blog-card__link:hover .blog-card__title {
+    color: var(--color-teal-dark);
+  }
+
+  .blog-card__link:hover .blog-card__read {
+    color: var(--color-teal);
+  }
+
+  .blog-card__date {
+    font-size: 0.85rem;
+    color: var(--color-gray-400);
+    font-weight: 500;
+  }
+
+  .blog-card__title {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    color: var(--color-navy);
+    margin: var(--space-xs) 0 var(--space-sm);
+    transition: color var(--transition-fast);
+  }
+
+  .blog-card__excerpt {
+    color: var(--color-gray-500);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: var(--space-sm);
+  }
+
+  .blog-card__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+    margin-bottom: var(--space-sm);
+  }
+
+  .blog-card__tag {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--color-teal-dark);
+    background: rgba(0, 201, 167, 0.08);
+    padding: 0.15rem 0.6rem;
+    border-radius: 100px;
+  }
+
+  .blog-card__read {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-gray-400);
+    transition: color var(--transition-fast);
+  }
+</style>

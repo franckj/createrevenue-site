@@ -1,0 +1,75 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BlogCard from '../../components/BlogCard.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<BaseLayout
+  title="Blog"
+  description="Articles on B2B sales strategy, health tech sales, revenue growth, and sales coaching."
+>
+  <section class="page-header">
+    <div class="container container--narrow">
+      <h1>Blog</h1>
+      <p class="page-header__sub">Practical advice on B2B sales — from pipeline to close.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container container--narrow">
+      <!-- Pagefind search (populated at build time) -->
+      <div id="search"></div>
+
+      <div class="blog-list">
+        {posts.map(post => (
+          <BlogCard
+            title={post.data.title}
+            description={post.data.description}
+            pubDate={post.data.pubDate}
+            slug={post.id}
+            tags={post.data.tags}
+          />
+        ))}
+      </div>
+
+      {posts.length === 0 && (
+        <p class="text-center" style="color: var(--color-gray-400); padding: var(--space-3xl) 0;">
+          No articles yet. Check back soon.
+        </p>
+      )}
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-header {
+    background: var(--color-gray-50);
+    padding: var(--space-4xl) 0 var(--space-2xl);
+  }
+
+  .page-header__sub {
+    font-size: 1.15rem;
+    color: var(--color-gray-500);
+    margin-top: var(--space-md);
+  }
+
+  .blog-list {
+    border-top: 1px solid var(--color-gray-100);
+  }
+</style>
+
+<!-- Pagefind UI -->
+<link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
+<script is:inline src="/pagefind/pagefind-ui.js"></script>
+<script is:inline>
+  window.addEventListener('DOMContentLoaded', () => {
+    new PagefindUI({
+      element: '#search',
+      showSubResults: false,
+      showImages: false,
+    });
+  });
+</script>
