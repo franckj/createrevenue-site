@@ -1,13 +1,12 @@
 /* ============================================
    CREATE REVENUE — Design System
-   Colors extracted from Kiinetics.com screenshot
    ============================================ */
 
 :root {
   /* Primary palette */
-  --color-teal: #00C9A7;
-  --color-teal-dark: #00A88A;
-  --color-teal-light: #33D4B9;
+  --color-teal: #007096;
+  --color-teal-dark: #005a78;
+  --color-teal-light: #2d8aab;
   --color-navy: #0B1A2B;
   --color-navy-light: #142D45;
   --color-slate: #1E3A5F;
@@ -24,8 +23,8 @@
   --color-gray-700: #263238;
 
   /* Accent */
-  --color-coral: #FF6B6B;
-  --color-amber: #FFB74D;
+  --color-accent: #97d700;
+  --color-accent-dark: #79ac00;
 
   /* Typography */
   --font-display: 'Plus Jakarta Sans', system-ui, sans-serif;
@@ -56,7 +55,7 @@
   --shadow-sm: 0 1px 3px rgba(11, 26, 43, 0.08);
   --shadow-md: 0 4px 12px rgba(11, 26, 43, 0.12);
   --shadow-lg: 0 8px 30px rgba(11, 26, 43, 0.16);
-  --shadow-glow: 0 0 20px rgba(0, 201, 167, 0.15);
+  --shadow-glow: 0 0 20px rgba(0, 112, 150, 0.2);
 }
 
 /* ============================================
@@ -194,12 +193,12 @@ p {
 
 .btn--primary {
   background-color: var(--color-teal);
-  color: var(--color-navy);
+  color: var(--color-white);
 }
 
 .btn--primary:hover {
   background-color: var(--color-teal-dark);
-  color: var(--color-navy);
+  color: var(--color-white);
   transform: translateY(-1px);
   box-shadow: var(--shadow-glow);
 }
