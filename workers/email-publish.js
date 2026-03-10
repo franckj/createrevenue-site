@@ -14,7 +14,7 @@
 // ─── Configuration ───────────────────────────────────────────────
 const CONFIG = {
   // Allowed senders (whitelist)
-  allowedSenders: ['brendan@createrevenue.com'], // Add Brendan's actual email(s)
+  allowedSenders: ['franck.j@gmail.com'],
 
   // GitHub
   githubOwner: 'franckj',
