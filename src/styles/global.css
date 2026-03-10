@@ -129,12 +129,12 @@ p {
 }
 
 .text-highlight {
-  color: var(--color-teal);
+  color: var(--color-accent);
 }
 
 .text-highlight-underline {
   text-decoration: underline;
-  text-decoration-color: var(--color-teal);
+  text-decoration-color: var(--color-accent);
   text-underline-offset: 4px;
   text-decoration-thickness: 3px;
 }
@@ -205,12 +205,12 @@ p {
 
 .btn--outline {
   background-color: transparent;
-  color: var(--color-teal);
-  border: 2px solid var(--color-teal);
+  color: var(--color-accent);
+  border: 2px solid var(--color-accent);
 }
 
 .btn--outline:hover {
-  background-color: var(--color-teal);
+  background-color: var(--color-accent);
   color: var(--color-navy);
 }
 
